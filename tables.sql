@@ -24,9 +24,8 @@ CREATE TABLE IF NOT EXISTS documents (
 CREATE TABLE IF NOT EXISTS document_chunks (
   id UUID PRIMARY KEY,
   document_id UUID REFERENCES documents(id) ON DELETE CASCADE,
-  chunk_index INT,
+  -- chunk_index INT,
   content TEXT NOT NULL,
-  token_count INT,
   created_at TIMESTAMP DEFAULT now()
 );
 

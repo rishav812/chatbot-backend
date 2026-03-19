@@ -9,10 +9,10 @@ from app.routes import ingest
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    async with engine.begin() as conn:
-        await conn.run_sync(Base.metadata.create_all)
-    print("✅ Database tables created successfully")
+    # Tables are now automatically created by Docker via tables.sql
+    print("🚀 App starting up... Database initialized via Docker.")
     yield
+    # Cleanly close DB connection pool on shutdown
     await engine.dispose()
 
 

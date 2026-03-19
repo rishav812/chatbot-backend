@@ -108,8 +108,8 @@ async def upload_document(
             request.content_type,
         )
 
-        # Background training
-        background_tasks.add_task(bot_training, contents, file_name)
+        # Background training — pass document.id so chunks are linked correctly
+        background_tasks.add_task(bot_training, contents, file_name, document.id)
 
         return IngestResponse(
             status="success",
