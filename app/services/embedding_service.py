@@ -70,7 +70,7 @@ async def similarity_search(
     result = await db.execute(
         stmt,
         {
-            "vec": str(query_embedding),   # pgvector accepts '[0.1,0.2,...]' string
+            "vec": str(query_embedding),
             "top_k": top_k,
             "min_score": min_score,
         },

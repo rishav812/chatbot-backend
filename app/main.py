@@ -4,8 +4,7 @@ from fastapi import FastAPI
 
 from app.database.session import engine
 from app.database.models import Base
-from app.routes import ingest
-
+from app.routes import ingest, chat
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -20,3 +19,4 @@ app = FastAPI(lifespan=lifespan)
 
 # Include routers
 app.include_router(ingest.router)
+app.include_router(chat.router)
